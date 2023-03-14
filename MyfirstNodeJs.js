@@ -6,6 +6,7 @@ const app = express();
 var dt = require("./uniTest");
 var caculator = require("./Caculator");
 const { type } = require("os");
+const student = require("./Student");
 
 function showInfo(mes) {
   if (typeof mes === "string") {
@@ -40,9 +41,11 @@ http
     // });
     // showInfo("hihi");
     // showInfo(76);
+
+    let student1 = new student("minh", 1, 7);
     res.writeHead(200, { "Content-Type": "text/plain" });
     res.write("Hello, world!\n");
-    res.write(uc.upperCase(`Thoi gian hien tai: ` + dt.myDateTime() + " "));
+    res.write(`${student1.name}`);
     res.write(uc.upperCase(`\n Tong: ` + caculator.AddNumber(5, 5)));
     res.end();
   })
